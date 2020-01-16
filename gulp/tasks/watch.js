@@ -7,7 +7,7 @@ gulp.task('cssInject', ['styles'] , () => {
     .pipe(browserSync.stream())
 })
 
-gulp.task('watch', function()  {
+gulp.task('watch', ['icons'] , () => {
 
   browserSync.init({
     notify: false,
@@ -16,7 +16,7 @@ gulp.task('watch', function()  {
     }
   })
 
-  watch('./app/index.html', function() {
+  watch('./app/index.html', () => {
     browserSync.reload();
   });
 
