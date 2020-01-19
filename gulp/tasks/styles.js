@@ -5,11 +5,12 @@ const cssvars = require('postcss-simple-vars')
 const nestedcss = require('postcss-nested')
 const cssImport = require('postcss-import')
 const mixins = require('postcss-mixins')
+const hexrgba = require('postcss-hexrgba');
 
 gulp.task('styles', () => {
   // console.log('Imagine Sass or postss tasks running here!!!');
   return gulp.src('./app/assets/styles/styles.css')
-    .pipe(postcss([cssImport, mixins , cssvars, nestedcss, autoprefixer]))
+    .pipe(postcss([cssImport, mixins, cssvars, nestedcss, hexrgba, autoprefixer]))
     .on('error', function(errorInfo) {
       console.log(errorInfo.toString());
       this.emit('end');
